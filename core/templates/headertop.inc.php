@@ -1,10 +1,8 @@
-<header>
-	<div id="logo_container">
+<header id="mw-head" class="noprint"><div class="container"><div id="p-logo">
 		<?php $link = (TBGSettings::getHeaderLink() == '') ? TBGContext::getTBGPath() : TBGSettings::getHeaderLink(); ?>
-		<a class="logo" href="<?php print $link; ?>"><?php echo image_tag(TBGSettings::getHeaderIconUrl(), array('style' => 'width: 24px; height: 24px;'), TBGSettings::isUsingCustomHeaderIcon()); ?></a>
-		<div class="logo_name"><?php echo TBGSettings::getTBGname(); ?></div>
+<a title="<?php echo TBGSettings::getTBGname(); ?>" href="<?php print $link; ?>"></a>
 	</div>
-	<?php if (!TBGSettings::isMaintenanceModeEnabled()): ?>
+	<?php if (!TBGSettings::isMaintenanceModeEnabled()): /* ?>
 		<nav class="tab_menu header_menu<?php if (TBGContext::isProjectContext()): ?> project_context<?php endif; ?>" id="main_menu">
 			<ul>
 				<?php if (!TBGSettings::isSingleProjectTracker() && !TBGContext::isProjectContext()): ?>
@@ -88,7 +86,8 @@
 				<?php TBGEvent::createNew('core', 'menustrip_item_links', null, array('selected_tab' => $tbg_response->getPage()))->trigger(); ?>
 			</ul>
 			<?php TBGEvent::createNew('core', 'before_header_userinfo')->trigger(); ?>
-		</nav>
+		</nav> */ ?>
+<?php TBGEvent::createNew('core', 'before_header_userinfo')->trigger(); ?>
 		<nav class="tab_menu header_menu" id="header_userinfo">
 			<ul>
 				<li<?php if ($tbg_request->hasCookie('tbg3_original_username')): ?> class="temporarily_switched"<?php endif; ?>>
@@ -162,4 +161,15 @@
 			</ul>
 		</nav>
 	<?php endif; ?>
-</header>
+</div><!-- end of body > header#mw-head > .container --></header>
+<nav id="sitenav">
+  <div class="container">
+    <ul class="links">
+      <li><a href="//docs.webplatform.org/wiki/Main_Page">The Docs</a></li>
+      <li><a href="//docs.webplatform.org/wiki/WPD:Community">Connect</a></li>
+      <li><a href="//docs.webplatform.org/wiki/WPD:Contributors_Guide">Contribute</a></li>
+      <li><a href="//blog.webplatform.org/">Blog</a></li>
+      <li><a href="//project.webplatform.org/" class="active">Issues</a></li>
+    </ul>
+  </div>
+</nav>

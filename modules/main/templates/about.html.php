@@ -4,8 +4,7 @@
 	$tbg_response->addBreadcrumb(__('About %sitename%', array('%sitename%' => TBGSettings::getTBGname())), make_url('about'), tbg_get_breadcrumblinks('main_links'));
 
 ?>
-<div class="rounded_box borderless mediumgrey" style="margin: 10px auto 0 auto; width: 500px; padding: 5px 5px 15px 5px; font-size: 13px; text-align: center;">
-	<div style="text-align: left; padding: 10px;">
+<div style="margin: 10px; text-align: center;">
 		<h1 style="font-size: 25px; margin-bottom: 0px; padding-bottom: 3px;">
 			The Bug Genie
 			<span style="font-size: 14px; font-weight: normal; color: #888;">
@@ -20,7 +19,6 @@
 		<?php echo __('Extend, develop and change The Bug Genie in any way you want, and do whatever you want with the new piece of software (The only thing you cannot do is call your software The Bug Genie). Please do send us your modifications for inclusion in The Bug Genie.'); ?><br>
 		<br>
 		<b><?php echo __('Enjoy using The Bug Genie!'); ?></b>
-	</div>
 	<br>
 	<a href="http://www.thebuggenie.com" target="_blank">The Bug Genie</a>, Copyright &copy; 2002 - <?php echo date('Y'); ?> <b>The Bug Genie team</b><br>
 	<?php echo __('Licensed under the MPL 1.1 only, read it at %link_to_MPL%', array('%link_to_MPL%' => '<a href="http://www.opensource.org/licenses/mozilla1.1.php">opensource.org</a>')); ?>.<br>

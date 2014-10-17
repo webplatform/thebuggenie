@@ -1679,7 +1679,7 @@
 			$url = '';
 			if ($this->usesGravatar() && $this->getEmail())
 			{
-				$url = (TBGContext::getScope()->isSecure()) ? 'https://secure.gravatar.com/avatar/' : 'http://www.gravatar.com/avatar/';
+				$url = (TBGContext::getScope()->isSecure()) ? 'https://secure.gravatar.com/avatar/' : 'https://www.gravatar.com/avatar/';
 				$url .= md5(trim($this->getEmail())) . '.png?d=wavatar&amp;s=';
 				$url .= ($small) ? 22 : 48; 
 			}

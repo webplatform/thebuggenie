@@ -98,33 +98,34 @@
 		<?php foreach ($sepjs as $js): ?>
 			<script type="text/javascript" src="<?php echo $js; ?>"></script>
 		<?php endforeach; ?>
-		  <!--[if lt IE 9]>
-			  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		  <![endif]-->
+
+<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<!--link rel="stylesheet" href="//www.webplatform.org/assets/css/squished.css?v=2013091800" / -->
+<link rel="stylesheet" href="https://docs.webplatform.org/w/load.php?debug=false&lang=en&modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.ui.button%7Cskins.webplatform&only=styles&skin=webplatform&*" />
 		<?php TBGEvent::createNew('core', 'header_ends')->trigger(); ?>
 	</head>
 	<body>
 		<?php require THEBUGGENIE_CORE_PATH . 'templates/backdrops.inc.php'; ?>
-		<table style="width: 100%; height: 100%; table-layout: fixed; min-width: 1020px;" cellpadding=0 cellspacing=0>
-			<tr>
-				<td style="height: auto; overflow: hidden;" valign="top" id="maintd">
 					<?php TBGLogging::log('Rendering header'); ?>
 					<?php require THEBUGGENIE_CORE_PATH . 'templates/headertop.inc.php'; ?>
 					<?php TBGLogging::log('done (rendering header)'); ?>
+
+<div id="content" class="mw-body"><div class="container"><a id="top"></a>
+
 					<?php if (!TBGSettings::isMaintenanceModeEnabled()) require THEBUGGENIE_CORE_PATH . 'templates/submenu.inc.php'; ?>
+
+<div id="page">
+
 					<?php TBGLogging::log('Rendering content'); ?>
 					<?php echo $content; ?>
 					<?php TBGLogging::log('done (rendering content)'); ?>
-				</td>
-			</tr>
-			<tr>
-				<td class="footer_bar">
+
+</div></div></div>
+
 					<?php TBGEvent::createNew('core', 'footer_begin')->trigger(); ?>
 					<?php require THEBUGGENIE_CORE_PATH . 'templates/footer.inc.php'; ?>
 					<?php TBGEvent::createNew('core', 'footer_end')->trigger(); ?>
-				</td>
-			</tr>
-		</table>
+
 		<script type="text/javascript">
 			document.observe('dom:loaded', function() {
 				var f_init = function() {TBG.initialize({ basepath: '<?php echo TBGContext::getTBGPath(); ?>', autocompleter_url: '<?php echo (TBGContext::isProjectContext()) ? make_url('project_quicksearch', array('project_key' => TBGContext::getCurrentProject()->getKey())) : make_url('quicksearch'); ?>'})};
