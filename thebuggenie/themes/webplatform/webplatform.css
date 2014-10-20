@@ -172,17 +172,18 @@ header #main_menu {
 #header_userinfo .temporarily_switched {
 	color: red;
 }
-#header_userinfo .tab_menu_dropdown {
-        text-align: left;
-}
 #header_userinfo > a:before {
 	content: none;
 }
-#header_userinfo .tab_menu_dropdown a {
+
+#mw-head .tab_menu_dropdown {
+        text-align: left;
+}
+#mw-head .tab_menu .tab_menu_dropdown a {
 	color: #4e4e50 !important;
 }
-.header_menu .tab_menu_dropdown a:hover,
-.header_menu li.selected .tab_menu_dropdown a:hover {
+#mw-head .tab_menu .tab_menu_dropdown a:hover,
+#mw-head .tab_menu li.selected .tab_menu_dropdown a:hover {
 	background-color: #B4E1E4 !important;
 }
 
@@ -6279,4 +6280,18 @@ body > header#mw-head nav.tab_menu {
 }
 #sitenav a {
 	border-bottom: 0;
+}
+
+/**
+ * Overriding WPD (upcoming) theme global CSS
+ * This isn’t best-practice, but we gotta deal
+ * with existing markup.
+ **/
+#wpd-buggenie #account_info_container {
+	margin: 20px;
+}
+/* Overriding hardcoded style attribute hardcoded on tags */
+#wpd-buggenie #tab_groups_pane /* in Configure, users */
+,#wpd-buggenie #config_modules /* in Configure, modules */ {
+	width: initial !important;
 }

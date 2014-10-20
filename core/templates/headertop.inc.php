@@ -2,7 +2,7 @@
 		<?php $link = (TBGSettings::getHeaderLink() == '') ? TBGContext::getTBGPath() : TBGSettings::getHeaderLink(); ?>
 <a title="<?php echo TBGSettings::getTBGname(); ?>" href="<?php print $link; ?>"></a>
 	</div>
-	<?php if (!TBGSettings::isMaintenanceModeEnabled()): /* ?>
+	<?php if (!TBGSettings::isMaintenanceModeEnabled()): ?>
 		<nav class="tab_menu header_menu<?php if (TBGContext::isProjectContext()): ?> project_context<?php endif; ?>" id="main_menu">
 			<ul>
 				<?php if (!TBGSettings::isSingleProjectTracker() && !TBGContext::isProjectContext()): ?>
@@ -86,8 +86,7 @@
 				<?php TBGEvent::createNew('core', 'menustrip_item_links', null, array('selected_tab' => $tbg_response->getPage()))->trigger(); ?>
 			</ul>
 			<?php TBGEvent::createNew('core', 'before_header_userinfo')->trigger(); ?>
-		</nav> */ ?>
-<?php TBGEvent::createNew('core', 'before_header_userinfo')->trigger(); ?>
+		</nav>
 		<nav class="tab_menu header_menu" id="header_userinfo">
 			<ul>
 				<li<?php if ($tbg_request->hasCookie('tbg3_original_username')): ?> class="temporarily_switched"<?php endif; ?>>

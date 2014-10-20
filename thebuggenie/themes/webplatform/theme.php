@@ -6,3 +6,5 @@
 
 	TBGContext::getResponse()->addStylesheet('oxygen.css');
 	TBGContext::getResponse()->addStylesheet('webplatform.css');
+	require 'customizations.inc.php';
+

@@ -6,25 +6,17 @@ foreach ($breadcrumbs as $index => $breadcrumb) {
 
 $next_has_menu = (array_key_exists($index + 1, $breadcrumbs) && array_key_exists('subitems', $breadcrumbs[$index + 1]) && is_array($breadcrumbs[$index + 1]['subitems']));
 if (array_key_exists('subitems', $breadcrumb) && is_array($breadcrumb['subitems']) && count($breadcrumb['subitems'])){
-?><li class="dropdown">
-  <?php $first = true; ?>
-  <?php foreach ($breadcrumb['subitems'] as $subindex => $subitem){ ?>
-  <?php if (array_key_exists('url', $subitem) || $subitem['title'] == $breadcrumb['title']){ ?>
-  <?php if($first === false) { ?><li><?php } ?>
-  <a href="<?php echo (array_key_exists('url', $subitem)) ? $subitem['url'] : '#'; ?>"<?php if (strpos($subitem['title'], $breadcrumb['title']) === 0): ?> class="selected<?php if ($first): ?> rounded_list_first_item<?php endif; ?>"<?php endif; ?>><?php echo $subitem['title']; ?></a>
-  <?php if($first === false) { ?></li><?php } else { ?><ul><?php } ?>
-  <?php $first = false; ?>
-  <?php } /*endif*/ ?>
-  <?php } /*endforeach*/ ?></ul>
-</li><?php } else {  ?><li>
+
+	echo '<li class="dropdown prout2">'.wpd_breadcrumb($breadcrumb).'</li>';
+
+} else {  ?><li>
   <?php $class = (array_key_exists('class', $breadcrumb) && $breadcrumb['class']) ? $breadcrumb['class'] : ''; ?>
   <?php if ($breadcrumb['url']): ?>
   <?php echo link_tag($breadcrumb['url'], $breadcrumb['title']); ?>
   <?php else: ?>
   <a <?php if ($class): ?> class="<?php echo $class; ?>"<?php endif; ?>><?php echo $breadcrumb['title']; ?></a>
   <?php endif; ?>
-</li><?php }
-
+</li><?php } /* end else */
 } /*endforeach*/ ?>
 </ol></div></div><?php /*
 	<?php if ($tbg_user->canSearchForIssues()): ?>

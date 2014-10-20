@@ -104,7 +104,7 @@
 <link rel="stylesheet" href="https://docs.webplatform.org/w/load.php?debug=false&lang=en&modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.ui.button%7Cskins.webplatform&only=styles&skin=webplatform&*" />
 		<?php TBGEvent::createNew('core', 'header_ends')->trigger(); ?>
 	</head>
-	<body>
+	<body id="wpd-buggenie">
 		<?php require THEBUGGENIE_CORE_PATH . 'templates/backdrops.inc.php'; ?>
 					<?php TBGLogging::log('Rendering header'); ?>
 					<?php require THEBUGGENIE_CORE_PATH . 'templates/headertop.inc.php'; ?>
