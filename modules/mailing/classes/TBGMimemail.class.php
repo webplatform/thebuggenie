@@ -114,7 +114,7 @@
 			$this->headers['Message-ID'] = "<{$this->sep1}@{$server_name}>";
 		}
 		
-		protected function __sleep()
+		public function __sleep()
 		{
 			return array('charset', 'default_message', 
 				'from', 'to', 'cc', 'bcc', 
